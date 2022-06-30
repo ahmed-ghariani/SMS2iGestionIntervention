@@ -11,6 +11,9 @@ public class MissionService {
     @Autowired
     MissionRepository mr;
     public Mission getMissionById(int id){
-        return mr.getReferenceById(id);
+        return mr.findById(id).get();
+    }
+    public Mission addMission(Mission m){
+        return mr.save(m);
     }
 }
