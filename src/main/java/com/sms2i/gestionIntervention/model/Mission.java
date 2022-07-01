@@ -39,9 +39,9 @@ public class Mission extends GenericModel<Long> {
     private Integer accompteMission ; 
     private Integer retourAccompte ;
     
-   /* @ManyToMany(mappedBy = "missions")
+    @ManyToMany(mappedBy = "missions")
     private Set<Technicien> techniciens ;
-    @ManyToOne
+    /*@ManyToOne
     Superviseur superviseurs;
     @ManyToOne
     AgentAdministratif agentadministratif; */

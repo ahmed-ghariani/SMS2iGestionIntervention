@@ -10,7 +10,7 @@ import java.util.List;
 
 
 
-    public class GenericController<T extends GenericModel ,ID,S extends GenericService > {
+public class GenericController<T extends GenericModel<ID> ,ID,S extends GenericService > {
         @Autowired
         S service;
         @GetMapping("/{id}")
@@ -34,6 +34,6 @@ import java.util.List;
             return (T) service.update(t,id);
         }
 
-    }
+}
 
 

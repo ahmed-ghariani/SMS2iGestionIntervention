@@ -21,15 +21,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
 
 @Entity
 @Table( name = "Technicien")
 public class Technicien extends Personne {
 	
 
-    /*@ManyToMany
-    private Set<Mission> missions ;*/
+    @ManyToMany
+    private Set<Mission> missions ;
 
 	
 
