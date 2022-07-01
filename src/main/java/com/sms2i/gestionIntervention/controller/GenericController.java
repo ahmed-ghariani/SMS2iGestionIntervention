@@ -19,7 +19,7 @@ import java.util.List;
         }
         @GetMapping
         List<T> getAll(){
-            return  service.getAll();
+            return (List<T>) service.getAll();
         }
         @PostMapping
         T add(@RequestBody T t){

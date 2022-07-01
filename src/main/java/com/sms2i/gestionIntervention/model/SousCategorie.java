@@ -1,10 +1,6 @@
 package com.sms2i.gestionIntervention.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -18,15 +14,8 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
-@Table( name = "Categorie")
-
-class Categorie {
-	
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idCategorie")
-	
-	private Long idCategorie ; 
+@Table( name = "Sous_Categorie")
+public class SousCategorie extends GenericModel<Long>{
 	private String titre ;
 	private String description ; 
 

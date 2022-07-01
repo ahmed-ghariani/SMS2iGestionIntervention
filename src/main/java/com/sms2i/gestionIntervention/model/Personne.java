@@ -15,13 +15,9 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @MappedSuperclass
-public class Personne {
+public class Personne extends GenericModel<Long> {
 	
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idPersonne")
-	
-	private Long idPersonne ; 
+
 	private String Nom ; 
 	private String Prenom ; 
 	

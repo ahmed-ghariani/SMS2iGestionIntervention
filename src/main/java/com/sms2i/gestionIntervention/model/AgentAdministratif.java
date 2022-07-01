@@ -19,15 +19,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-
+//@AllArgsConstructor
 @Entity
-@Table( name = "AgentAdministratif")
+@Table( name = "Agent_Administratif")
 
 
 public class AgentAdministratif extends Personne {
 
-	private Long idAgentAdministratif ; 
 	/*@OneToMany( mappedBy="AgentAdministratif")
 	private Set<Mission> mission;*/
 
