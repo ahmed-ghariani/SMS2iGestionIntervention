@@ -1,5 +1,6 @@
 package com.sms2i.gestionIntervention.model;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -18,18 +19,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
 @Entity
 @Table( name = "Superviseur")
 
 public class Superviseur extends Personne {
 	
-
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idSuperviseur")
-	
-	private Long idSuperviseur ;
-	@OneToMany(mappedBy="Superviseur")
+	@OneToMany(mappedBy="superviseurs")
 	private Set<Mission> mission;
 	
 	
