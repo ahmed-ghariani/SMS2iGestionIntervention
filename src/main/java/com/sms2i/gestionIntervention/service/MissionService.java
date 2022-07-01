@@ -23,9 +23,7 @@ public class MissionService {
         return mr.findAll();
     }
 
-    public List<Mission> findByName(String name){
-        return mr.findByName(name);
-    }
+
 
 
 }

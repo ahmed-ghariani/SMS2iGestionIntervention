@@ -29,8 +29,5 @@ public class MissionController {
         return ms.findAll();
     }
 
-    @GetMapping("/search/name")
-    List<Mission> getByName(@RequestParam String name){
-        return ms.findByName(name);
-    }
+
 }
