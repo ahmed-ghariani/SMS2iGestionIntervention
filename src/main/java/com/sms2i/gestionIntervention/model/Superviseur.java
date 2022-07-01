@@ -24,11 +24,7 @@ import lombok.Setter;
 public class Superviseur extends Personne {
 	
 
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idSuperviseur")
-	
-	private Long idSuperviseur ;
+
 	/*@OneToMany(mappedBy="Superviseur")
 	private Set<Mission> mission;*/
 	
