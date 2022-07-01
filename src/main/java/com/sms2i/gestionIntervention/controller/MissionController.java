@@ -6,6 +6,8 @@ import com.sms2i.gestionIntervention.service.MissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/missions")
 public class MissionController {
@@ -16,9 +18,19 @@ public class MissionController {
     Mission getMissionById(@PathVariable int id){
         return ms.getMissionById(id);
     }
+
     @PostMapping
     Mission addMission(@RequestBody Mission m){
         return ms.addMission(m);
+    }
 
+    @GetMapping
+    List<Mission> getAll(){
+        return ms.findAll();
+    }
+
+    @GetMapping("/search/name")
+    List<Mission> getByName(@RequestParam String name){
+        return ms.findByName(name);
     }
 }
