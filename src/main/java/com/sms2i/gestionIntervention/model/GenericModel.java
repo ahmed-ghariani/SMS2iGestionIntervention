@@ -25,7 +25,6 @@ public class GenericModel<ID> {
     }
 
     public void setId(ID id) {
-        System.out.println("generic setter used");
         this.id = id;
     }
 }

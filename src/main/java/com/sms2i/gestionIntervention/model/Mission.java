@@ -29,13 +29,8 @@ import lombok.Setter;
 
 @Entity
 @Table( name = "Mission")
+public class Mission extends GenericModel<Long> {
 
-public class Mission {
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idMission")
-
-    private Long idMission;
     private String descriptionMission ;
     private Date dateMission;
     private Date dateDebutEstime ;
@@ -44,12 +39,12 @@ public class Mission {
     private Integer accompteMission ; 
     private Integer retourAccompte ;
     
-    @ManyToMany(mappedBy = "missions")
+   /* @ManyToMany(mappedBy = "missions")
     private Set<Technicien> techniciens ;
     @ManyToOne
     Superviseur superviseurs;
     @ManyToOne
-    AgentAdministratif agentadministratif; 
+    AgentAdministratif agentadministratif; */
 
     
     

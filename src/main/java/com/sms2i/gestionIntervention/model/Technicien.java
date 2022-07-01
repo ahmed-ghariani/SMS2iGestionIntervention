@@ -20,12 +20,19 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
 @Entity
 @Table( name = "Technicien")
-public class Technicien extends Personne{
+public class Technicien {
 	
-    @ManyToMany
-    private Set<Mission> missions ;
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name="idTechnicien")
+	private Long idTechnicien ; 
+    /*@ManyToMany
+    private Set<Mission> missions ;*/
 
 	
 

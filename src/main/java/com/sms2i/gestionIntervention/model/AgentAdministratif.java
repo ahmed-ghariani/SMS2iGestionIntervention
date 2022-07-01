@@ -27,7 +27,11 @@ import lombok.Setter;
 
 public class AgentAdministratif extends Personne {
 	
-	@OneToMany( mappedBy="agentadministratif")
-	private Set<Mission> mission;
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name="idAgentAdministratif")
+	private Long idAgentAdministratif ; 
+	/*@OneToMany( mappedBy="AgentAdministratif")
+	private Set<Mission> mission;*/
 
 }
