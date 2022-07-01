@@ -30,8 +30,7 @@ public class GenericService<T extends GenericModel<ID>,ID,R extends JpaRepositor
     public void delete(T t){
         repository.delete(t);
     }
-    public T update(T t){
-        ID id = t.getId();
+    public T update(T t,ID id){
         if( id != null && repository.existsById(id)){
             return repository.save(t);
         }

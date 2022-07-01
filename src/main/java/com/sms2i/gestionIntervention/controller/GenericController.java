@@ -1,17 +1,14 @@
 package com.sms2i.gestionIntervention.controller;
 
 import com.sms2i.gestionIntervention.model.GenericModel;
-import com.sms2i.gestionIntervention.model.Mission;
 import com.sms2i.gestionIntervention.service.GenericService;
-import com.sms2i.gestionIntervention.service.MissionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-    @RestController
+
 
     public class GenericController<T extends GenericModel ,ID,S extends GenericService > {
         @Autowired
@@ -33,8 +30,8 @@ import java.util.List;
             service.delete(id);
         }
         @PutMapping("/{id}")
-        T update(@RequestBody T t){
-            return (T) service.update(t);
+        T update(@RequestBody T t,@PathVariable ID id){
+            return (T) service.update(t,id);
         }
 
     }
