@@ -16,17 +16,22 @@ public class MissionController {
 
     @GetMapping("/{id}")
     Mission getMissionById(@PathVariable int id){
-        return ms.getMissionById(id);
+        return ms.getById(id);
     }
 
     @PostMapping
     Mission addMission(@RequestBody Mission m){
-        return ms.addMission(m);
+        return ms.add(m);
     }
 
     @GetMapping
     List<Mission> getAll(){
-        return ms.findAll();
+        return ms.getAll();
+    }
+
+    @GetMapping("/search/name")
+    List<Mission> getByName(@RequestParam String name){
+        return ms.getByName(name);
     }
 
 
