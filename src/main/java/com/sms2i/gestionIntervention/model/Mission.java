@@ -3,6 +3,10 @@ package com.sms2i.gestionIntervention.model;
 
 
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -16,26 +20,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+
+
+
 
 
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-
 @Entity
-@Table( name = "Mission")
+public class Mission extends GenericModel<Long> {
 
-public class Mission {
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idMission")
-
-    private Long idMission;
     private String descriptionMission ;
     private Date dateMission;
     private Date dateDebutEstime ;
@@ -43,12 +39,12 @@ public class Mission {
     private String retourClient ;
     private Integer accompteMission ; 
     private Integer retourAccompte ;
-    @ManyToMany(mappedBy = "Mission")
+    /*@ManyToMany(mappedBy = "Mission")
     private Set<Technicien> techniciens ;
     @ManyToOne
     Superviseur superviseurs;
     @ManyToOne
-    AgentAdministratif agentadministratifs;
+    AgentAdministratif agentadministratifs;*/
 
     
     

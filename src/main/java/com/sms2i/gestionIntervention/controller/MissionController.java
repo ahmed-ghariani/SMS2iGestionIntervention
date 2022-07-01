@@ -4,15 +4,10 @@ package com.sms2i.gestionIntervention.controller;
 import com.sms2i.gestionIntervention.model.Mission;
 import com.sms2i.gestionIntervention.service.MissionService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -24,12 +19,13 @@ public class MissionController {
     MissionService ms;
 
     @GetMapping("/{id}")
-    Mission getMissionById(@PathVariable int id){
+    Mission getMissionById(@PathVariable long id){
         return ms.getById(id);
     }
 
     @PostMapping
     Mission addMission(@RequestBody Mission m){
+        System.out.println(m.toString());
         return ms.add(m);
     }
 
@@ -38,10 +34,6 @@ public class MissionController {
         return ms.getAll();
     }
 
-    @GetMapping("/search/name")
-    List<Mission> getByName(@RequestParam String name){
-        return ms.getByName(name);
-    }
 
 
 }

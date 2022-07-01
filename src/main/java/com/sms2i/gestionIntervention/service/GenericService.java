@@ -14,9 +14,11 @@ public class GenericService<T extends GenericModel<ID>,ID,R extends JpaRepositor
         return repository.findById(id).get();
     }
     public T add(T t){
-        if (repository.existsById(t.getId())){
-            return t;
+        /*ID id = t.getId();
+        if (id == null){
+        return repository.save(t);
         }
+        t.setId(null);*/
         return repository.save(t);
     }
     public List<T> getAll(){
