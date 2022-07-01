@@ -31,4 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 /.metadata/
+=======
+/.data/sms2i.db.mv.db
+>>>>>>> aca1d2a5655bda037b2ba612000b00660f6fccae
