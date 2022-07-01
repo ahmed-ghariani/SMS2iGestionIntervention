@@ -17,6 +17,5 @@ import lombok.Setter;
 @Table( name = "Sous_Categorie")
 public class SousCategorie extends GenericModel<Long>{
 	private String titre ;
-	private String description ; 
-
+	private String description ;
 }

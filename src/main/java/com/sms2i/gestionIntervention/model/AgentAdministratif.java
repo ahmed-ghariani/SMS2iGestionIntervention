@@ -19,14 +19,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table( name = "Agent_Administratif")
 
 
 public class AgentAdministratif extends Personne {
 
-	/*@OneToMany( mappedBy="AgentAdministratif")
-	private Set<Mission> mission;*/
+	@OneToMany( mappedBy="agentAdministratif")
+	private Set<Mission> missions;
 
 }
