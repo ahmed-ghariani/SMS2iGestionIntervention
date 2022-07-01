@@ -1,8 +1,7 @@
 package com.sms2i.gestionIntervention.model;
 
-import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.MappedSuperclass;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

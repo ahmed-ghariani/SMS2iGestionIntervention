@@ -1,5 +1,6 @@
 package com.sms2i.gestionIntervention.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
