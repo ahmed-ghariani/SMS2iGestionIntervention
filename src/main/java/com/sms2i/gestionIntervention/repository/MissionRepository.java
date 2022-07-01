@@ -1,4 +1,4 @@
-package com.sms2i.gestionIntervention.repository;
+/**package com.sms2i.gestionIntervention.repository;
 
 import com.sms2i.gestionIntervention.model.Mission;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,3 +10,4 @@ import java.util.List;
 public interface MissionRepository extends JpaRepository<Mission,Integer> {
     List<Mission> findByName(String name);
 }
+ **/

@@ -43,12 +43,13 @@ public class Mission {
     private String retourClient ;
     private Integer accompteMission ; 
     private Integer retourAccompte ;
-    @ManyToMany(mappedBy = "Mission")
+    
+    @ManyToMany(mappedBy = "missions")
     private Set<Technicien> techniciens ;
     @ManyToOne
     Superviseur superviseurs;
     @ManyToOne
-    AgentAdministratif agentadministratifs;
+    AgentAdministratif agentadministratif; 
 
     
     

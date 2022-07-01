@@ -1,4 +1,4 @@
-package com.sms2i.gestionIntervention.service;
+/** package com.sms2i.gestionIntervention.service;
 
 
 import com.sms2i.gestionIntervention.model.Mission;
@@ -29,3 +29,5 @@ public class MissionService {
 
 
 }
+
+**/
