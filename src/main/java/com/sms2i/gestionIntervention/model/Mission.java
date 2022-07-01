@@ -3,41 +3,55 @@ package com.sms2i.gestionIntervention.model;
 
 
 
+import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
+@Table( name = "Mission")
+
 public class Mission {
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name="idMission")
 
-    private int id;
-    private String name;
+    private Long idMission;
+    private String descriptionMission ;
+    private Date dateMission;
+    private Date dateDebutEstime ;
+    private Long dureeEstime;
+    private String retourClient ;
+    private Integer accompteMission ; 
+    private Integer retourAccompte ;
+    @ManyToMany(mappedBy = "Mission")
+    private Set<Technicien> techniciens ;
+    @ManyToOne
+    Superviseur superviseurs;
+    @ManyToOne
+    AgentAdministratif agentadministratifs;
 
-    public Mission(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Mission() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-
+    
+    
+    
+    
 }

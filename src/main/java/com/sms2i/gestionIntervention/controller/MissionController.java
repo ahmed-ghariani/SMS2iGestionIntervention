@@ -3,19 +3,20 @@ package com.sms2i.gestionIntervention.controller;
 
 import com.sms2i.gestionIntervention.model.Mission;
 import com.sms2i.gestionIntervention.service.MissionService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-=======
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
->>>>>>> aca1d2a5655bda037b2ba612000b00660f6fccae
 @RestController
 @RequestMapping("/missions")
 public class MissionController {
