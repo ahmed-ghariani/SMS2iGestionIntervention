@@ -11,7 +11,7 @@ public class GenericService<T extends GenericModel<ID>,ID,R extends JpaRepositor
     @Autowired
     R repository;
     public T getById(ID id){
-        return repository.findById(id).get();
+        return repository.findById(id).orElseThrow();
     }
     public T add(T t){
         /*ID id = t.getId();
