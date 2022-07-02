@@ -10,9 +10,4 @@ import java.util.List;
 
 @Service
 public class MissionService extends GenericService<Mission,Long,MissionRepository>{
-
-
-
-
-
 }
