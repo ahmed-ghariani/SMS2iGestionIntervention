@@ -41,6 +41,8 @@ public class Mission extends GenericModel<Long> {
     @ManyToOne
     AgentAdministratif agentAdministratif;
 
+
+
     
     
     
