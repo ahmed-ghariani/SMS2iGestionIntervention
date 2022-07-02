@@ -1,8 +1,6 @@
 package com.sms2i.gestionIntervention.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sms2i.gestionIntervention.id.LigneBonSRId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
