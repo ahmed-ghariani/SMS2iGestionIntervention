@@ -15,9 +15,9 @@ import javax.persistence.Table;
 @AllArgsConstructor
 
 @Entity
-@Table( name = "Software")
-public class Software extends GenericModel<Long> {
+@Table( name = "Checklist")
+public class Checklist extends GenericModel<Long> {
 
-    private String softwareLabel;
-    private String softwareVersion;
+    private String nomModele;
+
 }
