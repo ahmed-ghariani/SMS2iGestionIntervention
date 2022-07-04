@@ -28,5 +28,5 @@ public class BonIntervention extends GenericModel<Long>{
     Mission mission;
 
     @ManyToMany
-    private Set<Tags> Tags;
+    private Set<Tags> tags;
 }

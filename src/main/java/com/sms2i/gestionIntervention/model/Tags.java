@@ -27,7 +27,7 @@ public class Tags extends GenericModel<Long> {
     GroupeTags groupe;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "Tags")
+    @ManyToMany(mappedBy = "tags")
     private Set<BonIntervention> bonInterventions;
 
 }
