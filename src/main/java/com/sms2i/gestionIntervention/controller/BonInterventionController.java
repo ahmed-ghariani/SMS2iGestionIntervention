@@ -19,4 +19,9 @@ public class BonInterventionController extends GenericController<BonIntervention
         return  service.findByTags(tags);
     }
 
+    @GetMapping("/search/groupe/{groupeId}")
+    Set<BonIntervention> findByGroupe(@PathVariable Long groupeId){
+        return service.findByGroupe(groupeId);
+    }
+
 }
