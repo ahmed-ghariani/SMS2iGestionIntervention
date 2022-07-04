@@ -23,6 +23,6 @@ public class Software extends GenericModel<Long> {
     private String softwareLabel;
     private String softwareVersion;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "softwares")
     private Set<Checklist> checklists;
 }
