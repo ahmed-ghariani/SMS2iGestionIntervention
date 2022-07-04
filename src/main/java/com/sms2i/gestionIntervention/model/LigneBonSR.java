@@ -1,6 +1,7 @@
 package com.sms2i.gestionIntervention.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sms2i.gestionIntervention.id.LigneBonSRId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,7 @@ public class LigneBonSR  {
     @ManyToOne
     @MapsId("materielId")
     @JoinColumn(name = "materiel_id")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Materiel materiel;
 
 
