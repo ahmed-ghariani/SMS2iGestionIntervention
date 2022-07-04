@@ -1,5 +1,6 @@
 package com.sms2i.gestionIntervention.model;
 
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.EmbeddedId;
@@ -10,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,11 +35,13 @@ public class DepencesDeplacement extends GenericModel<categorieDepencesDeplaceme
     @ManyToOne
     @MapsId("idDeplacement")
     @JoinColumn(name = "idDeplacement")
+    @JsonBackReference
     Deplacement deplacement;
 
     @ManyToOne
     @MapsId("idCategorieDepences")
     @JoinColumn(name = "idCategorieDepences")
+   
     CategorieDepences categorieDepences;
 
 

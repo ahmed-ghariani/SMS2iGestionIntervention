@@ -1,5 +1,6 @@
 package com.sms2i.gestionIntervention.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,6 +17,18 @@ public interface DepencesDeplacementRepository extends JpaRepository<DepencesDep
 	public DepencesDeplacement addDepencesDeplacement (DepencesDeplacement d ) ;
 	public DepencesDeplacement updateDepencesDeplacement(DepencesDeplacement d , categorieDepencesDeplacement id );
 	public void deleteDepencesDeplacement(categorieDepencesDeplacement id); 
-**/
+	 */
+	
+	
+	
+
+		
+
+	
+	
+	
+	
+
+
 
 }

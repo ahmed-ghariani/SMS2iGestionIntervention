@@ -2,6 +2,7 @@ package com.sms2i.gestionIntervention.model;
 
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +18,9 @@ import lombok.Setter;
 @Entity
 @Table( name = "Sous_Categorie")
 public class SousCategorie extends GenericModel<Long>{
+
 	private String titre ;
 	private String description ;
+	@ManyToOne
+	private Categorie categorie;
 }

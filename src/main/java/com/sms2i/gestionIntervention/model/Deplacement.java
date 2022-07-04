@@ -8,6 +8,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +29,7 @@ public class Deplacement extends GenericModel<Long> {
 	private Integer heureDebut ; 
 	private Integer heureFin ; 
 	
-    @OneToMany(mappedBy = "deplacement")
+    @OneToMany(mappedBy = "deplacement")@JsonManagedReference
     Set<DepencesDeplacement> depencesDeplacements;
 
 }

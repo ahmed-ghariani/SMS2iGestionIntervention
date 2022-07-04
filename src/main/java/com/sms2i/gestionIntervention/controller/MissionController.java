@@ -11,8 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/missions")
 public class MissionController extends GenericController<Mission,Long,MissionService> {
-
-
-
 }
 
