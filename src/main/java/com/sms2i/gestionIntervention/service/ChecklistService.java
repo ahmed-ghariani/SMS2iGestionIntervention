@@ -15,12 +15,5 @@ public class ChecklistService extends GenericService<Checklist,Long, ChecklistRe
         return repository.findByNomModele(modelName);
     }
 
-    @Override
-    public Checklist add(Checklist checklist) {
-        Set<Materiel> materiels= checklist.getMateriels();
-        checklist.setMateriels(null);
-        repository.save(checklist);
-        checklist.setMateriels(materiels);
-        return repository.save(checklist);
-    }
+
 }

@@ -1,6 +1,7 @@
 package com.sms2i.gestionIntervention.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Software extends GenericModel<Long> {
     private String softwareLabel;
     private String softwareVersion;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "softwares")
     private Set<Checklist> checklists;
 }
