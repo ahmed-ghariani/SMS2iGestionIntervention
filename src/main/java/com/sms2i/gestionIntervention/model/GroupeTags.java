@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -19,4 +21,7 @@ import javax.persistence.Table;
 public class GroupeTags extends GenericModel<Long>{
     private Long idGroup;
     private String nomGroup;
+
+    @OneToMany(mappedBy = "groupe")
+    Set<Tags> tags;
 }

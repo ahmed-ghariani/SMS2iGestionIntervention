@@ -50,18 +50,18 @@ public class Mission extends GenericModel<Long> {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Set<SousCategorie> sousCategories;
 
-    @OneToOne
+    @OneToOne(mappedBy = "mission")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     BonIntervention bonIntervention;
 
     @ManyToOne
     Checklist checklist;
 
-    @OneToOne
+    @OneToOne(mappedBy = "mission")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     BonSR bonSR;
 
-    @OneToMany
+    @OneToMany(mappedBy = "mission")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Set<Deplacement> deplacements;
 
