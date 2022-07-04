@@ -1,9 +1,7 @@
 package com.sms2i.gestionIntervention.service;
 
 
-import com.sms2i.gestionIntervention.model.Mission;
-import com.sms2i.gestionIntervention.model.SousCategorie;
-import com.sms2i.gestionIntervention.model.Technicien;
+import com.sms2i.gestionIntervention.model.*;
 import com.sms2i.gestionIntervention.repository.MissionRepository;
 
 
@@ -24,11 +22,9 @@ public class MissionService extends GenericService<Mission,Long,MissionRepositor
         return repository.findAllByTechniciens(technicien);
     }
 
-    public List<Mission> findByTechnicienSet( Set<Technicien> techniciens){
-        Set<Mission> missions = new HashSet<>();
-        techniciens.forEach(technicien -> missions.addAll(repository.findAllByTechniciens(technicien)));
-        return missions.stream().toList();
-    }
+    /*public Set<Mission> findByTechnicienSet( Set<Technicien> techniciens){
+        return repository.findAllByTechniciensIn(techniciens);
+    }*/
 
 
     public Mission addTechnicien(long missionId, long technicienId){
@@ -43,6 +39,17 @@ public class MissionService extends GenericService<Mission,Long,MissionRepositor
         Mission mission = repository.findById(missionId).orElseThrow();
         mission.setSousCategories(sousCategories);
         return repository.save(mission);
+    }
+    public List<Mission> findByClientId(long id){
+        Client client =new Client();
+        client.setId(id);
+        return repository.findAllByClient(client);
+    }
+
+    public List<Mission> findByAgentAdministratifId(long id){
+        AgentAdministratif agentAdministratif = new AgentAdministratif();
+        agentAdministratif.setId(id);
+        return repository.findAllByAgentAdministratif(agentAdministratif);
     }
 }
 
