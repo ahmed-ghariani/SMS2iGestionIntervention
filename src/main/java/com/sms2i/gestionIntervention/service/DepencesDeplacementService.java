@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sms2i.gestionIntervention.model.CategorieDepences;
 import com.sms2i.gestionIntervention.model.DepencesDeplacement;
+import com.sms2i.gestionIntervention.model.Deplacement;
 import com.sms2i.gestionIntervention.repository.DepencesDeplacementRepository;
+import com.sms2i.gestionIntervention.repository.DeplacementRepository;
 
 
 
@@ -16,18 +19,11 @@ public class DepencesDeplacementService  {
 	@Autowired
 	
 	private DepencesDeplacementRepository depencesDeplacementRepository ; 
+	private DeplacementRepository deplacementRepository ; 
 
 
 
 	
-	/* public DepencesDeplacement DepencesDeplacementById(Long id) {
-		
-		
-		return depencesDeplacementRepository.findById(id).get();
-
-		
-	}
-	*/
 
 	
 	public List<DepencesDeplacement> getAll() {
@@ -35,44 +31,33 @@ public class DepencesDeplacementService  {
 		
 
 		return   depencesDeplacementRepository.findAll();
+		
 
 		
 		
 	}
 
 	
-	public DepencesDeplacement addDepencesDeplacement(DepencesDeplacement d) {
-		
-		
-		return  depencesDeplacementRepository.save(d) ; 
-
-	}
-
 	
-	/* public DepencesDeplacement updateDepencesDeplacement(DepencesDeplacement d, Long id) {
+	public DepencesDeplacement addDepencesDeplacement(DepencesDeplacement dp ) {
 		
-		DepencesDeplacement deps = depencesDeplacementRepository.findById(id).get();
-				
 		
-		return depencesDeplacementRepository.save(d);
+		Deplacement d = new Deplacement();
+		d.setId(dp.getId().getIdDeplacement());
+		CategorieDepences c = new CategorieDepences();
+		c.setId(dp.getId().getIdCategorieDepences());
+		
+		dp.setCategorieDepences(c);
+		dp.setDeplacement(d);
 
 		
-		
-	}
-	
-	
+		return depencesDeplacementRepository.save(dp);
 
-	
-	public void deleteDepencesDeplacement(Long id) {
-		
-		depencesDeplacementRepository.deleteById(id);
-
-		
-		
 		
 	}
 	
-	*/
+
+	
 
 
 }

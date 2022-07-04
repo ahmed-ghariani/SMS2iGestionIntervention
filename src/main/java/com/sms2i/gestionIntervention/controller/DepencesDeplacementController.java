@@ -2,6 +2,7 @@ package com.sms2i.gestionIntervention.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sms2i.gestionIntervention.model.DepencesDeplacement;
+import com.sms2i.gestionIntervention.model.Deplacement;
 import com.sms2i.gestionIntervention.service.DepencesDeplacementService;
+
 
 
 @RestController
@@ -38,36 +41,19 @@ public class DepencesDeplacementController {
 	return list;
 	}
 	
-	 /** @GetMapping("depencesDeplacement/{id}")
+	@PostMapping("")
 	@ResponseBody
-	
-	 DepencesDeplacement getdepencesById(@PathVariable long id ) {
-		
-		return depencesDeplacementService.getById(id);
+	public DepencesDeplacement addDepencesDeplacement(@RequestBody DepencesDeplacement dp){
+		return depencesDeplacementService.addDepencesDeplacement(dp);
 	}
+
 	
 	
-	 @PutMapping("/Modifier/{id}")
-	@ResponseBody
-	
-	DepencesDeplacement Update(@RequestBody DepencesDeplacement d , @PathVariable  id ) {
-		
-		
-		return  depencesDeplacementService.updateDepencesDeplacement(d,id);
-	}
 	
 	
-	@DeleteMapping("delete/{id}")
-	@ResponseBody
 	
-	void deleteClient(@PathVariable("id") Long id) {
-		
-		 depencesDeplacementService.deleteById(id); 
-		
-		
-		
-		
-	} */
+	
+}
 
 	
 	
@@ -84,4 +70,4 @@ public class DepencesDeplacementController {
 	
 	
 	
-}
+
