@@ -1,5 +1,6 @@
 package com.sms2i.gestionIntervention.controller;
 
+
 import com.sms2i.gestionIntervention.id.LigneBonSRId;
 import com.sms2i.gestionIntervention.model.LigneBonSR;
 import com.sms2i.gestionIntervention.service.LigneBonSRService;
@@ -22,7 +23,7 @@ public class LigneBonSRController {
         return  service.getAll();
     }
     @PostMapping
-    LigneBonSR add(@RequestBody LigneBonSR t){
+    LigneBonSR add(@RequestBody LigneBonSR t ){
         return service.add(t);
     }
     @DeleteMapping("/{id}")
@@ -34,3 +35,4 @@ public class LigneBonSRController {
         return service.update(t,id);
     }
 }
+

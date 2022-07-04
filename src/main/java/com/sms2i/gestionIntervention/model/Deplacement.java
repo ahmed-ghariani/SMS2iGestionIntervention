@@ -3,10 +3,8 @@ package com.sms2i.gestionIntervention.model;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -31,5 +29,9 @@ public class Deplacement extends GenericModel<Long> {
 	
     @OneToMany(mappedBy = "deplacement")@JsonManagedReference
     Set<DepencesDeplacement> depencesDeplacements;
+
+	@NotNull
+	@ManyToOne
+	Mission mission;
 
 }
