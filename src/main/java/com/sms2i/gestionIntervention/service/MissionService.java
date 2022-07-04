@@ -10,6 +10,7 @@ import com.sms2i.gestionIntervention.repository.MissionRepository;
 import org.springframework.stereotype.Service;
 
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -17,10 +18,16 @@ import java.util.Set;
 public class MissionService extends GenericService<Mission,Long,MissionRepository>{
 
 
-    public List<Mission> findbyTechnicienId(long id){
+    public List<Mission> findByTechnicienId(long id){
         Technicien technicien =new Technicien();
         technicien.setId(id);
         return repository.findAllByTechniciens(technicien);
+    }
+
+    public List<Mission> findByTechnicienSet( Set<Technicien> techniciens){
+        Set<Mission> missions = new HashSet<>();
+        techniciens.forEach(technicien -> missions.addAll(repository.findAllByTechniciens(technicien)));
+        return missions.stream().toList();
     }
 
 
