@@ -27,7 +27,9 @@ public class Materiel extends GenericModel<Long> {
     @JsonIgnore
     private Set<LigneBonSR> lignesBonSR ;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "materiels")
     private Set<Checklist> checklists;
+
+
 
 }
