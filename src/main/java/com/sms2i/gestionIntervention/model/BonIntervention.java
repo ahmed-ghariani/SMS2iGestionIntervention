@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,4 +26,7 @@ public class BonIntervention extends GenericModel<Long>{
 
     @OneToOne
     Mission mission;
+
+    @ManyToMany
+    private Set<Tags> Tags;
 }
