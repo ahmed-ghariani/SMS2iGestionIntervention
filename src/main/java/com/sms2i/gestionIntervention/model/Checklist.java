@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -21,12 +19,5 @@ import java.util.Set;
 public class Checklist extends GenericModel<Long> {
 
     private String nomModele;
-
-    @ManyToMany
-    private Set<Materiel> materiels;
-
-    @ManyToMany
-    private Set<Software> softwares;
-
 
 }

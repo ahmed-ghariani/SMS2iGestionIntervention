@@ -3,10 +3,8 @@ package com.sms2i.gestionIntervention.model;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,5 +27,9 @@ public class Deplacement extends GenericModel<Long> {
 	
     @OneToMany(mappedBy = "deplacement")
     Set<DepencesDeplacement> depencesDeplacements;
+
+	@NotNull
+	@ManyToOne
+	Mission mission;
 
 }

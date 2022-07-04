@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Getter
@@ -21,4 +22,6 @@ public class BonIntervention extends GenericModel<Long>{
     private String archiveUrl;
     private Long dureeTotale;
 
+    @OneToOne
+    Mission mission;
 }
