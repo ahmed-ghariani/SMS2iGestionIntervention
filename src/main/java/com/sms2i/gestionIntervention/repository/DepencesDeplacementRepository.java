@@ -11,11 +11,11 @@ import com.sms2i.gestionIntervention.model.categorieDepencesDeplacement;
 @Repository
 public interface DepencesDeplacementRepository extends JpaRepository<DepencesDeplacement, categorieDepencesDeplacement> {
 	
-	public DepencesDeplacement DepencesDeplacementById(categorieDepencesDeplacement id);
+/**	public DepencesDeplacement DepencesDeplacementById(categorieDepencesDeplacement id);
 	public List<DepencesDeplacement> getAll();
 	public DepencesDeplacement addDepencesDeplacement (DepencesDeplacement d ) ;
 	public DepencesDeplacement updateDepencesDeplacement(DepencesDeplacement d , categorieDepencesDeplacement id );
 	public void deleteDepencesDeplacement(categorieDepencesDeplacement id); 
-
+**/
 
 }
