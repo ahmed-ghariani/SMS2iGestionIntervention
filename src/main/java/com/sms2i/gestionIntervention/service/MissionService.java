@@ -8,9 +8,7 @@ import com.sms2i.gestionIntervention.repository.MissionRepository;
 import org.springframework.stereotype.Service;
 
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class MissionService extends GenericService<Mission,Long,MissionRepository>{
@@ -50,6 +48,12 @@ public class MissionService extends GenericService<Mission,Long,MissionRepositor
         AgentAdministratif agentAdministratif = new AgentAdministratif();
         agentAdministratif.setId(id);
         return repository.findAllByAgentAdministratif(agentAdministratif);
+    }
+
+
+
+    public List<Mission> findByDateMission(Date dateMission) {
+        return repository.findAllByDateMissionBetween(dateMission,new Date(dateMission.getTime()+(23*3600+59*60+59)*1000));
     }
 }
 

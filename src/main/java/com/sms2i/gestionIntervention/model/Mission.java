@@ -47,7 +47,6 @@ public class Mission extends GenericModel<Long> {
     Client client;
 
     @ManyToMany
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Set<SousCategorie> sousCategories;
 
     @OneToOne(mappedBy = "mission")
