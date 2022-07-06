@@ -6,9 +6,15 @@ import com.sms2i.gestionIntervention.model.SousCategorie;
 import com.sms2i.gestionIntervention.service.MissionService;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -33,6 +39,16 @@ public class MissionController extends GenericController<Mission,Long,MissionSer
     @GetMapping("/search/agentAdministratif/{id}")
     List<Mission> findByAgnetId(@PathVariable long id){
         return service.findByAgentAdministratifId(id);
+    }
+
+    @GetMapping("/search/dateMission/{date}")
+    List<Mission> findByDateMission(@PathVariable String date){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return service.findByDateMission(dateFormat.parse(date));
+        } catch (ParseException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"date format should be yyyy-mm-dd");
+        }
     }
 
     @PostMapping("/affecter")

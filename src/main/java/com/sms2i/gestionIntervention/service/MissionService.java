@@ -5,12 +5,13 @@ import com.sms2i.gestionIntervention.model.*;
 import com.sms2i.gestionIntervention.repository.MissionRepository;
 
 
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class MissionService extends GenericService<Mission,Long,MissionRepository>{
@@ -50,6 +51,17 @@ public class MissionService extends GenericService<Mission,Long,MissionRepositor
         AgentAdministratif agentAdministratif = new AgentAdministratif();
         agentAdministratif.setId(id);
         return repository.findAllByAgentAdministratif(agentAdministratif);
+    }
+
+
+
+    public List<Mission> findByDateMission(Date dateMission) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(dateMission);
+        calendar.add(Calendar.HOUR_OF_DAY,23);
+        calendar.add(Calendar.MINUTE,59);
+        calendar.add(Calendar.SECOND,59);
+        return repository.findAllByDateMissionBetween(dateMission,calendar.getTime());
     }
 }
 
