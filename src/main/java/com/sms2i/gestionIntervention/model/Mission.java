@@ -1,9 +1,8 @@
 package com.sms2i.gestionIntervention.model;
 
 
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -35,8 +34,6 @@ public class Mission extends GenericModel<Long> {
     private Integer retourAccompte ;
     
     @ManyToMany(fetch = FetchType.EAGER)
-    @JsonManagedReference
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Set<Technicien> techniciens ;
     @ManyToOne
     Superviseur superviseur;
@@ -50,18 +47,16 @@ public class Mission extends GenericModel<Long> {
     Set<SousCategorie> sousCategories;
 
     @OneToOne(mappedBy = "mission")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     BonIntervention bonIntervention;
 
     @ManyToOne
     Checklist checklist;
 
     @OneToOne(mappedBy = "mission")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     BonSR bonSR;
 
     @OneToMany(mappedBy = "mission")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonManagedReference
     Set<Deplacement> deplacements;
 
 

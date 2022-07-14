@@ -27,7 +27,7 @@ public class Technicien extends Personne {
 	
 
     @ManyToMany(mappedBy = "techniciens")
-    @JsonBackReference
+    @JsonIgnore
     private Set<Mission> missions ;
 
 	

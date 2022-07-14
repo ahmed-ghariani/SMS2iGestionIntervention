@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -27,11 +28,12 @@ public class Deplacement extends GenericModel<Long> {
 	private Integer heureDebut ; 
 	private Integer heureFin ; 
 	
-    @OneToMany(mappedBy = "deplacement")@JsonManagedReference
+    @OneToMany(mappedBy = "deplacement")
+	@JsonManagedReference
     Set<DepencesDeplacement> depencesDeplacements;
 
-	@NotNull
 	@ManyToOne
+	@JsonBackReference
 	Mission mission;
 
 }
