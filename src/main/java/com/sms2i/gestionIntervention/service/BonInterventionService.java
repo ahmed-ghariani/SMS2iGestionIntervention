@@ -16,6 +16,12 @@ import java.util.Set;
 public class BonInterventionService extends GenericService<BonIntervention,Long, BonInterventionRepository> {
     @Autowired
     GroupeTagssRepository groupeTagssRepository;
+
+    @Autowired
+    public BonInterventionService(BonInterventionRepository repository) {
+        super(repository);
+    }
+
     public Set<BonIntervention> findByTags (Set<Tags> tags){
         return repository.findAllByTagsIn(tags);
     }

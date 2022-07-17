@@ -6,12 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import java.util.Set;
 
 @Getter
@@ -23,12 +18,10 @@ import java.util.Set;
 @Table( name = "Checklist")
 public class Checklist extends GenericModel<Long> {
 
-    @NotEmpty
-    @Column(unique = true)
-    private String nomModele;
+    @ManyToOne
+    CheckListModel model;
     @ManyToMany
     private Set<Materiel> materiels;
-
     @ManyToMany
     private Set<Software> softwares;
 

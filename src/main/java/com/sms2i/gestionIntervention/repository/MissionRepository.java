@@ -1,9 +1,6 @@
 package com.sms2i.gestionIntervention.repository;
 
-import com.sms2i.gestionIntervention.model.AgentAdministratif;
-import com.sms2i.gestionIntervention.model.Client;
-import com.sms2i.gestionIntervention.model.Mission;
-import com.sms2i.gestionIntervention.model.Technicien;
+import com.sms2i.gestionIntervention.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,5 +17,5 @@ public interface MissionRepository extends JpaRepository<Mission,Long> {
 
     List<Mission> findAllByDateMissionBetween(Date dateDebut, Date dateFin);
 
-
+    List<Mission> findAllByEtat(EtatMission etat);
 }

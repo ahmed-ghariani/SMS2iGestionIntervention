@@ -1,11 +1,13 @@
 package com.sms2i.gestionIntervention.controller;
 
 
+import com.sms2i.gestionIntervention.model.EtatMission;
 import com.sms2i.gestionIntervention.model.Mission;
 import com.sms2i.gestionIntervention.model.SousCategorie;
 import com.sms2i.gestionIntervention.service.MissionService;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -21,10 +23,11 @@ import java.util.Set;
 @RestController
 @RequestMapping("/mission")
 public class MissionController extends GenericController<Mission,Long,MissionService> {
-    /* @GetMapping("/search/techniciens")
-    Set<Mission> findByTechniciens(@RequestBody Set<Technicien> techniciens){
-        return service.findByTechnicienSet(techniciens);
-    }*/
+    @Autowired
+    MissionController(MissionService service) {
+        super(service);
+    }
+
     @GetMapping("/search/technicien/{id}")
      List<Mission> findByTechnicienId(@PathVariable long id){
         return service.findByTechnicienId(id);
@@ -40,6 +43,10 @@ public class MissionController extends GenericController<Mission,Long,MissionSer
         return service.findByAgentAdministratifId(id);
     }
 
+    @GetMapping("search/etat")
+    List<Mission> findByEtat(@RequestParam EtatMission etat){
+        return service.findByEtat(etat);
+    }
     @GetMapping("/search/dateMission/{date}")
     List<Mission> findByDateMission(@PathVariable String date){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -58,6 +65,10 @@ public class MissionController extends GenericController<Mission,Long,MissionSer
     @PostMapping("/object")
     Mission specifierObjet(@RequestParam long missionId, @RequestBody Set<SousCategorie> sousCategories){
         return service.specifiyObject(missionId,sousCategories);
+    }
+    @PostMapping("/designation")
+    Mission setDesignation(@RequestParam long missionId,@RequestParam String designaion){
+        return service.setDesignation(missionId,designaion);
     }
 }
 

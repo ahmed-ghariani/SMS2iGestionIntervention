@@ -28,9 +28,5 @@ public class AgentAdministratif extends Personne {
 	@JsonIgnore
 	private Set<Mission> missions;
 
-	@OneToMany(mappedBy = "responsableSortie")
-	Set<BonSR> BonSortie;
-	@OneToMany(mappedBy = "responsableRetour")
-	Set<BonSR> bonRetours;
 
 }
