@@ -3,6 +3,7 @@ package com.sms2i.gestionIntervention.controller;
 import java.util.List;
 
 
+import com.sms2i.gestionIntervention.id.DepencesDeplacementId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,11 @@ public class DepencesDeplacementController {
 	@GetMapping("/search/deplacement/{id}")
 	public List<DepencesDeplacement> getAllByDeplacement(@PathVariable long id){
 		return service.getAllbyDeplacementId(id);
+	}
+
+	@GetMapping("/{id}")
+	public DepencesDeplacement getById(@PathVariable DepencesDeplacementId id){
+		return service.getById(id);
 	}
 	
 

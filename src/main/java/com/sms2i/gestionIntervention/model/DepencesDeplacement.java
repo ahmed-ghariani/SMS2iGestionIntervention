@@ -1,18 +1,12 @@
 package com.sms2i.gestionIntervention.model;
 
-import java.util.Optional;
-import java.util.Set;
-
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sms2i.gestionIntervention.id.DepencesDeplacementId;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,24 +18,23 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table( name = "DepencesMission")
+public class DepencesDeplacement{
 
-public class DepencesDeplacement extends GenericModel<categorieDepencesDeplacement>{
-	
+    @EmbeddedId
+	private DepencesDeplacementId id;
 	private Integer valeurRembourse ; 
 	private Integer valeur ; 
 	
     
     @ManyToOne
-    @MapsId("idDeplacement")
-    @JoinColumn(name = "idDeplacement")
+    @MapsId("deplacementId")
+    @JoinColumn(name = "deplacement_id")
     @JsonBackReference
     Deplacement deplacement;
 
     @ManyToOne
-    @MapsId("idCategorieDepences")
-    @JoinColumn(name = "idCategorieDepences")
-   
+    @MapsId("categorieDepencesId")
+    @JoinColumn(name = " categorie_depences_id")
     CategorieDepences categorieDepences;
 
 
