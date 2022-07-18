@@ -25,6 +25,7 @@ import lombok.Setter;
 public class CategorieDepences extends GenericModel<Long> {
 	
 	private String label ;
+	private Integer coutUnitaire;
 	private Integer plafond ; 
 	
 	@JsonIgnore
