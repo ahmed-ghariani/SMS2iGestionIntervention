@@ -5,12 +5,8 @@ import com.sms2i.gestionIntervention.model.EtatMission;
 import com.sms2i.gestionIntervention.model.Mission;
 import com.sms2i.gestionIntervention.model.SousCategorie;
 import com.sms2i.gestionIntervention.service.MissionService;
-<<<<<<< HEAD
-=======
-
 
 import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> d51848340224bbbcbd6f7d23d630f44ab92e4827
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
