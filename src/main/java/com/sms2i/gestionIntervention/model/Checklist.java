@@ -1,17 +1,13 @@
 package com.sms2i.gestionIntervention.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import java.util.Set;
 
 @Getter
@@ -23,14 +19,15 @@ import java.util.Set;
 @Table( name = "Checklist")
 public class Checklist extends GenericModel<Long> {
 
-    @NotEmpty
-    @Column(unique = true)
-    private String nomModele;
-    @ManyToMany
+    @ManyToOne(fetch = FetchType.EAGER)
+    CheckListModel model;
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Materiel> materiels;
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Software> softwares;
+    @OneToOne
+    @JsonIdentityReference(alwaysAsId = true)
+    private Mission ordreMission;
 
 
 }

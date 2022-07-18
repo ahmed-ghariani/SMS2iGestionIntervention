@@ -21,16 +21,5 @@ import java.util.Set;
 public class Materiel extends GenericModel<Long> {
 
     private String label;
-    private int quantiteStock;
-
-    @OneToMany(mappedBy ="materiel" )
-    @JsonIgnore
-    private Set<LigneBonSR> lignesBonSR ;
-
-    @JsonIgnore
-    @ManyToMany(mappedBy = "materiels")
-    private Set<Checklist> checklists;
-
-
 
 }

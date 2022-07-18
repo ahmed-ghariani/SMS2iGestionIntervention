@@ -2,18 +2,23 @@ package com.sms2i.gestionIntervention.controller;
 
 import com.sms2i.gestionIntervention.model.GenericModel;
 import com.sms2i.gestionIntervention.service.GenericService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 
 
-public class GenericController<T extends GenericModel<ID> ,ID,S extends GenericService > {
-        @Autowired
-        S service;
-        @GetMapping("/{id}")
+public class GenericController<T extends GenericModel<ID> ,ID extends Serializable,S extends GenericService > {
+
+
+    S service;
+    public GenericController(S service) {
+        this.service = service;
+    }
+
+    @GetMapping("/{id}")
         T getById(@PathVariable ID id){
             return (T) service.getById(id);
         }

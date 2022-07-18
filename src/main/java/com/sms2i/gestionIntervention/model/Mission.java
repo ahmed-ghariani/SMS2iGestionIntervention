@@ -1,16 +1,13 @@
 package com.sms2i.gestionIntervention.model;
 
-
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
-
-
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,48 +18,37 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
 @Table( name = "Mission")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Mission extends GenericModel<Long> {
 
-    private String descriptionMission ;
+    private EtatMission etat;
+    private String designation;
     private Date dateMission;
-    private Date dateDebutEstime ;
+    private String descriptionMission;
+    private Date dateDebutEstime;
     private Long dureeEstime;
-    private String retourClient ;
-    private Integer accompteMission ; 
-    private Integer retourAccompte ;
-    
+    private String retourClient;
+    private Integer accompteMission;
+    private Integer retourAccompte;
+    private String urlDossier;
     @ManyToMany(fetch = FetchType.EAGER)
-    @JsonManagedReference
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Set<Technicien> techniciens ;
+    private Set<Technicien> techniciens;
     @ManyToOne
     Superviseur superviseur;
     @ManyToOne
     AgentAdministratif agentAdministratif;
-
     @ManyToOne
     Client client;
-
     @ManyToMany
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Set<SousCategorie> sousCategories;
-
     @OneToOne(mappedBy = "mission")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     BonIntervention bonIntervention;
-
-    @ManyToOne
+    @OneToOne(mappedBy = "ordreMission")
     Checklist checklist;
-
-    @OneToOne(mappedBy = "mission")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    BonSR bonSR;
-
     @OneToMany(mappedBy = "mission")
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonManagedReference
     Set<Deplacement> deplacements;
 
 

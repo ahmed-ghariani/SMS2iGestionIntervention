@@ -1,17 +1,27 @@
 package com.sms2i.gestionIntervention.service;
 
 import com.sms2i.gestionIntervention.model.GenericModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.io.Serializable;
+import java.net.http.HttpResponse;
 import java.util.List;
 
-public class GenericService<T extends GenericModel<ID>,ID,R extends JpaRepository<T,ID>>{
 
-    @Autowired
+public class GenericService<T extends GenericModel<ID>,ID extends Serializable,R extends JpaRepository<T,ID>>{
+
+
     R repository;
+    public GenericService(R repository) {
+        this.repository = repository;
+    }
     public T getById(ID id){
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"no element with id: "+id+" found")
+        );
     }
     public T add(T t){
         return repository.save(t);

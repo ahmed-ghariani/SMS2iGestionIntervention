@@ -3,6 +3,7 @@ package com.sms2i.gestionIntervention.controller;
 
 import com.sms2i.gestionIntervention.model.Software;
 import com.sms2i.gestionIntervention.service.SoftwareService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,4 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Software")
 public class SoftwareController extends GenericController<Software,Long, SoftwareService> {
 
+    @Autowired
+    SoftwareController(SoftwareService service) {
+        super(service);
+    }
 }
