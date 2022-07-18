@@ -11,7 +11,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 
 
-@Transactional
 public class GenericService<T extends GenericModel<ID>,ID extends Serializable,R extends JpaRepository<T,ID>>{
 
 

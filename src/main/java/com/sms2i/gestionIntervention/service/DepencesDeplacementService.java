@@ -17,44 +17,28 @@ import com.sms2i.gestionIntervention.repository.DeplacementRepository;
 public class DepencesDeplacementService  {
 	
 	@Autowired
-	
-	private DepencesDeplacementRepository depencesDeplacementRepository ; 
-	private DeplacementRepository deplacementRepository ; 
+	private DepencesDeplacementRepository repository ;
 
-
-
-	
-
-	
 	public List<DepencesDeplacement> getAll() {
-		
-		
-
-		return   depencesDeplacementRepository.findAll();
-		
-
-		
-		
+		return   repository.findAll();
 	}
-
-	
-	
-	public DepencesDeplacement addDepencesDeplacement(DepencesDeplacement dp ) {
-		
-		
+	public DepencesDeplacement add(DepencesDeplacement dp ) {
 		Deplacement d = new Deplacement();
 		d.setId(dp.getId().getIdDeplacement());
 		CategorieDepences c = new CategorieDepences();
 		c.setId(dp.getId().getIdCategorieDepences());
-		
 		dp.setCategorieDepences(c);
 		dp.setDeplacement(d);
-
-		
-		return depencesDeplacementRepository.save(dp);
-
-		
+		return repository.save(dp);
 	}
+
+	public List<DepencesDeplacement> getAllbyDeplacementId(long deplacementId){
+		Deplacement deplacement = new Deplacement();
+		deplacement.setId(deplacementId);
+		return repository.findAllByDeplacement(deplacement);
+	}
+
+
 	
 
 	

@@ -26,26 +26,25 @@ import com.sms2i.gestionIntervention.service.DepencesDeplacementService;
 public class DepencesDeplacementController {
 	
 	@Autowired
-	private DepencesDeplacementService depencesDeplacementService;
-	
-	@PostMapping("/add")
-	
-	DepencesDeplacement add(@RequestBody DepencesDeplacement d) {
-	return depencesDeplacementService.addDepencesDeplacement(d);
-		
-	}
-	
-	@GetMapping("/getAll")
-	public List<DepencesDeplacement> getAll() {
-	List<DepencesDeplacement> list = depencesDeplacementService.getAll();
-	return list;
-	}
+	private DepencesDeplacementService service;
 	
 	@PostMapping("")
-	@ResponseBody
-	public DepencesDeplacement addDepencesDeplacement(@RequestBody DepencesDeplacement dp){
-		return depencesDeplacementService.addDepencesDeplacement(dp);
+	DepencesDeplacement add(@RequestBody DepencesDeplacement d) {
+		return service.add(d);
 	}
+	
+	@GetMapping("")
+	public List<DepencesDeplacement> getAll() {
+	List<DepencesDeplacement> list = service.getAll();
+	return list;
+	}
+
+	@GetMapping("/search/deplacement/{id}")
+	public List<DepencesDeplacement> getAllByDeplacement(@PathVariable long id){
+		return service.getAllbyDeplacementId(id);
+	}
+	
+
 
 	
 	

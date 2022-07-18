@@ -1,6 +1,7 @@
 package com.sms2i.gestionIntervention.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,12 +19,15 @@ import java.util.Set;
 @Table( name = "Checklist")
 public class Checklist extends GenericModel<Long> {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     CheckListModel model;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Materiel> materiels;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Software> softwares;
+    @OneToOne
+    @JsonIdentityReference(alwaysAsId = true)
+    private Mission ordreMission;
 
 
 }

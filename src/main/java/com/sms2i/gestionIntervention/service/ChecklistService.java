@@ -15,22 +15,27 @@ import java.util.Set;
 @Service
 public class ChecklistService extends GenericService<Checklist,Long, ChecklistRepository> {
 
-    CheckListModelRepository modelRepository;
+    CheckListModelService modelService;
     @Autowired
-    public ChecklistService(ChecklistRepository repository, CheckListModelRepository modelRepository) {
+    public ChecklistService(ChecklistRepository repository, CheckListModelService modelService) {
         super(repository);
-        this.modelRepository=modelRepository;
+        this.modelService=modelService;
     }
 
 
     @Override
     public Checklist add(Checklist checklist) {
-        Checklist finalChecklist = checklist;
+        /*Checklist finalChecklist = checklist;
         finalChecklist.setSoftwares(new HashSet<>());
         finalChecklist.setMateriels(new HashSet<>());
         CheckListModel model = modelRepository.getReferenceById(checklist.getModel().getId());
         model.getMateriels().forEach(materiel -> finalChecklist.getMateriels().add(materiel));
         model.getSoftwares().forEach(software -> finalChecklist.getSoftwares().add(software));
-        return repository.save(finalChecklist);
+        return repository.save(finalChecklist);*/
+        checklist.setModel(modelService.getById(checklist.getModel().getId()));
+        return repository.save(checklist);
     }
+
+
+
 }

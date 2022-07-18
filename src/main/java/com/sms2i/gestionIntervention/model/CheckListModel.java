@@ -1,12 +1,14 @@
 package com.sms2i.gestionIntervention.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import java.util.List;
 import java.util.Set;
 
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
@@ -14,12 +16,16 @@ import java.util.Set;
 public class CheckListModel extends GenericModel<Long>{
 
     private String nom;
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.EAGER)
     Set<Materiel> materiels;
-    @ManyToMany
-    List<SoftwareCategorie> softwareCategories;
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    Set<SoftwareCategorie> softwareCategories;
+
+    @ManyToMany(fetch = FetchType.EAGER)
     Set<Software> softwares;
+
     @OneToMany(mappedBy = "model")
     @JsonIgnore
     Set<Checklist> checklists;
