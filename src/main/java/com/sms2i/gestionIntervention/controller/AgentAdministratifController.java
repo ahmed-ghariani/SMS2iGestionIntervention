@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/agentAdministratif")
 public class AgentAdministratifController extends GenericController<AgentAdministratif,Long, AgentAdministratifService> {
     @Autowired
-    AgentAdministratifController(AgentAdministratifService service) {
+    public AgentAdministratifController(AgentAdministratifService service) {
         super(service);
     }
 }

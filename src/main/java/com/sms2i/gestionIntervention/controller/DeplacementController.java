@@ -11,7 +11,7 @@ import com.sms2i.gestionIntervention.service.DeplacementService;
 @RequestMapping("/Deplacement")
 public class DeplacementController extends GenericController<Deplacement, Long, DeplacementService> {
    @Autowired
-   DeplacementController(DeplacementService service) {
+   public DeplacementController(DeplacementService service) {
    super(service);
    }
 }

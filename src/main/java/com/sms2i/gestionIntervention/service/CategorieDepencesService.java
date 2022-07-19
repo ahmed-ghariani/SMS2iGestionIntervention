@@ -11,7 +11,7 @@ import com.sms2i.gestionIntervention.repository.CategorieDepencesRepository;
 public class CategorieDepencesService extends GenericService<CategorieDepences,Long, CategorieDepencesRepository> {
 
     @Autowired
-    CategorieDepencesService(CategorieDepencesRepository repository) {
+    public CategorieDepencesService(CategorieDepencesRepository repository) {
         super(repository);
     }
 }

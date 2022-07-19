@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TechnicienService extends GenericService<Technicien,Long, TechnicienRepository> {
     @Autowired
-    TechnicienService(TechnicienRepository repository) {
+    public TechnicienService(TechnicienRepository repository) {
         super(repository);
     }
 }

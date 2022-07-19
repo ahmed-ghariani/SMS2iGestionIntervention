@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class CheckListModelService extends GenericService<CheckListModel,Long, CheckListModelRepository>{
 
     @Autowired
-    CheckListModelService(CheckListModelRepository repository) {
+    public  CheckListModelService(CheckListModelRepository repository) {
         super(repository);
     }
 }

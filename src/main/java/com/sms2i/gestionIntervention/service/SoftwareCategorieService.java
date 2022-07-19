@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class SoftwareCategorieService extends GenericService<SoftwareCategorie,Long, SoftwareCategorieRepository> {
 
     @Autowired
-    SoftwareCategorieService(SoftwareCategorieRepository repository) {
+    public  SoftwareCategorieService(SoftwareCategorieRepository repository) {
         super(repository);
     }
 }

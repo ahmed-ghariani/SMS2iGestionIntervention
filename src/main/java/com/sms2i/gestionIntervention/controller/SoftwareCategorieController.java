@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SoftwareCategorieController extends GenericController<SoftwareCategorie,Long, SoftwareCategorieService> {
 
     @Autowired
-    SoftwareCategorieController(SoftwareCategorieService service) {
+    public SoftwareCategorieController(SoftwareCategorieService service) {
         super(service);
     }
 }

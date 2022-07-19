@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/checkListModel")
 public class CheckListModelController extends GenericController<CheckListModel,Long, CheckListModelService> {
     @Autowired
-    CheckListModelController(CheckListModelService service) {
+    public CheckListModelController(CheckListModelService service) {
         super(service);
     }
 }

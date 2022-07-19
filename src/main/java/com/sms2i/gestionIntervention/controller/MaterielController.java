@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/materiel")
 public class MaterielController extends GenericController<Materiel,Long, MaterielService> {
     @Autowired
-    MaterielController(MaterielService service) {
+    public MaterielController(MaterielService service) {
         super(service);
     }
 }

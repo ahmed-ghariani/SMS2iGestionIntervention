@@ -16,7 +16,7 @@ import java.util.Set;
 public class BonInterventionController extends GenericController<BonIntervention,Long, BonInterventionService> {
 
     @Autowired
-    BonInterventionController(BonInterventionService service) {
+    public  BonInterventionController(BonInterventionService service) {
         super(service);
     }
 

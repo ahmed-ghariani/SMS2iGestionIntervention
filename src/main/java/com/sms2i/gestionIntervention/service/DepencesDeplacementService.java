@@ -41,4 +41,15 @@ public class DepencesDeplacementService  {
 				() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"no element with id: "+id+" found")
 		);
 	}
+
+    public DepencesDeplacement update(DepencesDeplacementId id, DepencesDeplacement depencesDeplacement) {
+		Deplacement deplacement = new Deplacement();
+		deplacement.setId(id.getDeplacementId());
+		CategorieDepences categorieDepences = new CategorieDepences();
+		categorieDepences.setId(id.getCategorieDepencesId());
+		depencesDeplacement.setDeplacement(deplacement);
+		depencesDeplacement.setCategorieDepences(categorieDepences);
+		depencesDeplacement.setId(id);
+		return repository.save(depencesDeplacement);
+    }
 }

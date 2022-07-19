@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/client")
 public class ClientController extends GenericController<Client,Long, ClientService> {
     @Autowired
-    ClientController(ClientService service) {
+    public ClientController(ClientService service) {
         super(service);
     }
 }

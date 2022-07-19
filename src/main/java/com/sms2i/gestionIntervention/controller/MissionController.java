@@ -24,7 +24,7 @@ import java.util.Set;
 @RequestMapping("/mission")
 public class MissionController extends GenericController<Mission,Long,MissionService> {
     @Autowired
-    MissionController(MissionService service) {
+    public MissionController(MissionService service) {
         super(service);
     }
 

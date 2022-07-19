@@ -10,7 +10,7 @@ import com.sms2i.gestionIntervention.repository.DeplacementRepository;
 public class DeplacementService extends GenericService<Deplacement, Long, DeplacementRepository>{
 
     @Autowired
-    DeplacementService(DeplacementRepository repository) {
+    public DeplacementService(DeplacementRepository repository) {
         super(repository);
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/groupeTags")
 public class GroupeTagsControler extends GenericController<GroupeTags,Long, GroupeTagsService> {
     @Autowired
-    GroupeTagsControler(GroupeTagsService service) {
+    public GroupeTagsControler(GroupeTagsService service) {
         super(service);
     }
 }

@@ -49,6 +49,11 @@ public class DepencesDeplacementController {
 	public DepencesDeplacement getById(@PathVariable DepencesDeplacementId id){
 		return service.getById(id);
 	}
+
+	@PutMapping("/{id}")
+	public DepencesDeplacement update(@PathVariable DepencesDeplacementId id,@RequestBody DepencesDeplacement depencesDeplacement){
+		return service.update(id,depencesDeplacement);
+	}
 	
 
 
