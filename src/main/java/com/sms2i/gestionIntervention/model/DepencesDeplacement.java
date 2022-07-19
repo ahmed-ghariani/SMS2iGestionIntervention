@@ -22,7 +22,7 @@ public class DepencesDeplacement{
 
     @EmbeddedId
 	private DepencesDeplacementId id;
-	private Integer valeurRembourse ; 
+	private Integer valeurRemboursee ;
 	private Integer valeur ; 
 	
     
