@@ -6,7 +6,6 @@ import com.sms2i.gestionIntervention.model.Mission;
 import com.sms2i.gestionIntervention.model.SousCategorie;
 import com.sms2i.gestionIntervention.service.MissionService;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
